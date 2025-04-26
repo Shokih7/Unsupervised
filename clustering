@@ -1,0 +1,83 @@
+X_con_habits = df[habits_features]
+X_con_mental = df[mental_features]
+X_con_all = df[features_for_clustering]
+X_con_habits_scaled = scaler.fit_transform(X_con_habits)
+X_con_mental_scaled = scaler.fit_transform(X_con_mental)
+X_con_all_scaled = scaler.fit_transform(X_con_all)
+
+# Spectral
+
+#habits
+gower_dist_matrix = gower.gower_matrix(X_con_habits)
+
+# Similarity = 1 - distance
+gower_sim_matrix = 1 - gower_dist_matrix
+
+sc = SpectralClustering(n_clusters=4, affinity='precomputed', random_state=42)
+df['spec_cluster_habits'] = sc.fit_predict(gower_sim_matrix)
+
+# Clustering
+spectral = SpectralClustering(n_clusters=8, affinity='nearest_neighbors', assign_labels='kmeans', random_state=42)
+df['spec_cluster_mental'] = spectral.fit_predict(X_con_mental_scaled)
+df['spec_cluster_all'] = spectral.fit_predict(X_con_all_scaled)
+
+# Prim
+
+prim_cluster = AgglomerativeClustering(n_clusters=9, metric='euclidean', linkage='ward')
+df['prim_habits_cluster'] = prim_cluster.fit_predict(X_con_habits_scaled)
+df['prim_mental_cluster'] = prim_cluster.fit_predict(X_con_mental_scaled)
+df['prim_all_cluster'] = prim_cluster.fit_predict(X_con_all_scaled)
+
+# GMM
+
+gmm = GaussianMixture(n_components=7, random_state=42)
+df['gmm_cluster_habits'] = gmm.fit_predict(X_con_habits_scaled)
+df['gmm_cluster_mental'] = gmm.fit_predict(X_con_mental_scaled)
+df['gmm_cluster_all'] = gmm.fit_predict(X_con_all_scaled)
+
+# FCM
+
+fcm = FCM(n_clusters=7, random_state=42)
+fcm.fit(X_con_habits_scaled)
+df['fcm_habits'] = fcm.predict(X_con_habits_scaled)
+
+fcm = FCM(n_clusters=7, random_state=42)
+fcm.fit(X_con_mental_scaled)
+df['fcm_mental'] = fcm.predict(X_con_mental_scaled)
+
+fcm = FCM(n_clusters=7, random_state=42)
+fcm.fit(X_con_all_scaled)
+df['fcm_all'] = fcm.predict(X_con_all_scaled)
+
+# K-means
+
+kmeans = KMeans(n_clusters=8, random_state=42)
+kmeans.fit(X_con_habits_scaled)
+df['kmeans_habits'] = kmeans.predict(X_con_habits_scaled)
+kmeans = KMeans(n_clusters=8, random_state=42)
+kmeans.fit(X_con_mental_scaled)
+df['kmeans_mental'] = kmeans.predict(X_con_mental_scaled)
+kmeans = KMeans(n_clusters=8, random_state=42)
+kmeans.fit(X_con_all_scaled)
+df['kmeans_all'] = kmeans.predict(X_con_all_scaled)
+
+# K-modes
+
+# Select categorical features
+X_categorical = df[cat_habits]
+# Apply K-Modes clustering
+kmodes_model = KModes(n_clusters=10, init='Huang', n_init=10, verbose=1) # You can adjust n_clusters
+df['spec_kmodes_habits'] = kmodes_model.fit_predict(X_categorical)
+
+# Select categorical features
+X_categorical = df[genre]
+# Apply K-Modes clustering
+kmodes_model = KModes(n_clusters=10, init='Huang', n_init=10, verbose=1) # You can adjust n_clusters
+df['spec_kmodes_genre'] = kmodes_model.fit_predict(X_categorical)
+
+# Select categorical features
+X_categorical = df[cat_features]
+# Apply K-Modes clustering
+kmodes_model = KModes(n_clusters=10, init='Huang', n_init=10, verbose=1) # You can adjust n_clusters
+df['spec_kmodes_all'] = kmodes_model.fit_predict(X_categorical)
+

@@ -1,0 +1,50 @@
+features_for_clustering = ['Age', 'Hours per day', 'BPM', 'Anxiety', 'Depression', 'Insomnia', 'OCD'] #continuis
+
+all_features            = ['Age', 'Primary streaming service', 'Hours per day',
+                           'While working', 'Instrumentalist', 'Composer', 'Fav genre',
+                           'Exploratory', 'Foreign languages', 'BPM', 'Classical F Indicator',
+                           'Country F Indicator', 'EDM F Indicator', 'Folk F Indicator',
+                           'Gospel F Indicator', 'Hip hop F Indicator', 'Jazz F Indicator',
+                           'K pop F Indicator', 'Latin F Indicator', 'Lofi F Indicator',
+                           'Metal F Indicator', 'Pop F Indicator', 'R&B F Indicator',
+                           'Rap F Indicator', 'Rock F Indicator', 'Video game music F Indicator'
+                           'Anxiety', 'Depression', 'Insomnia', 'OCD', 'Music effects']
+
+cat_features            = ['Primary streaming service', 'While working', 'Instrumentalist',
+                           'Composer', 'Composer Indicator','Fav genre', 'Exploratory',
+                           'Foreign languages','Frequency [Classical]','Frequency [Country]',
+                           'Frequency [EDM]', 'Frequency [Folk]', 'Frequency [Gospel]',
+                           'Frequency [Hip hop]', 'Frequency [Jazz]', 'Frequency [K pop]',
+                           'Frequency [Latin]', 'Frequency [Lofi]','Frequency [Metal]',
+                           'Frequency [Pop]',  'Frequency [R&B]', 'Frequency [Rap]',
+                           'Frequency [Rock]', 'Frequency [Video game music]', 'Music effects']
+
+genre                   = ['Fav genre', 'Foreign languages','Frequency [Classical]',
+                           'Frequency [Country]', 'Frequency [EDM]', 'Frequency [Folk]',
+                           'Frequency [Gospel]', 'Frequency [Hip hop]', 'Frequency [Jazz]',
+                           'Frequency [K pop]', 'Frequency [Latin]', 'Frequency [Lofi]',
+                           'Frequency [Metal]', 'Frequency [Pop]',  'Frequency [R&B]',
+                           'Frequency [Rap]','Frequency [Rock]', 'Frequency [Video game music]']
+
+genre_indicators        = ['Classical F Indicator', 'Country F Indicator', 'EDM F Indicator',
+                           'Folk F Indicator', 'Gospel F Indicator', 'Hip hop F Indicator',
+                           'Jazz F Indicator',  'K pop F Indicator', 'Latin F Indicator',
+                           'Lofi F Indicator', 'Metal F Indicator', 'Pop F Indicator',
+                           'R&B F Indicator',  'Rap F Indicator', 'Rock F Indicator',
+                           'Video game music F Indicator']
+
+mental_features         = ['Anxiety', 'Depression', 'Insomnia', 'OCD']
+
+habits_features         = ['Age', 'Hours per day', 'While working Indicator', 'BPM']
+
+cat_habits              = ['Primary streaming service', 'While working', 'Instrumentalist',
+                           'Composer', 'Fav genre', 'Exploratory',
+                           'Foreign languages','Music effects']
+
+genre_indicators        = ['Classical F Indicator', 'Country F Indicator', 'EDM F Indicator',
+                           'Folk F Indicator', 'Gospel F Indicator', 'Hip hop F Indicator',
+                           'Jazz F Indicator', 'K pop F Indicator', 'Latin F Indicator',
+                           'Lofi F Indicator', 'Metal F Indicator', 'Pop F Indicator',
+                           'R&B F Indicator', 'Rap F Indicator', 'Rock F Indicator',
+                           'Video game music F Indicator']
+

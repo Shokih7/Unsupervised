@@ -48,3 +48,7 @@ genre_indicators        = ['Classical F Indicator', 'Country F Indicator', 'EDM 
                            'R&B F Indicator', 'Rap F Indicator', 'Rock F Indicator',
                            'Video game music F Indicator']
 
+class_groups = {'habits': ['spec_cluster_habits', 'prim_habits_cluster', 'gmm_cluster_habits', 'fcm_habits', 'kmeans_habits', 'spec_kmodes_habits'],
+                'mental': ['spec_cluster_mental', 'prim_mental_cluster', 'gmm_cluster_mental', 'fcm_mental','kmeans_mental', 'spec_kmodes_genre'],
+                'all': ['spec_cluster_all', 'prim_all_cluster', 'gmm_cluster_all', 'fcm_all', 'kmeans_all', 'spec_kmodes_all']
+                }

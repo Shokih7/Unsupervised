@@ -1,0 +1,15 @@
+pink_palette = sns.color_palette("RdPu", n_colors=len(df['spec_cluster_habits'].unique())) # Example, adjust n_colors as needed
+
+for group_name, cluster_cols in class_groups.items():
+    for feature in all_features:
+        fig, axes = plt.subplots(1, len(cluster_cols), figsize=(25, 5), sharey=True)
+        fig.suptitle(f'Feature: {feature}, Clustering by {group_name}')
+
+        for i, col in enumerate(cluster_cols):
+            sns.swarmplot(ax=axes[i], x=col, y=feature, data=df, size=5, palette=pink_palette,)
+            axes[i].set_title(f'Cluster: {col}')
+            axes[i].set_xlabel(col)
+            axes[i].set_ylabel(feature)
+
+        plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust layout to prevent title overlap
+        plt.show()
